@@ -4,4 +4,4 @@ array = []
     array << i
   end
 end
-  puts array.inject {|sum,number| sum + number}
+  puts array.sum
