@@ -1,51 +1,28 @@
-puts "Input a number"
-i = gets.chomp.to_i
-puts "Input second number"
-j = gets.chomp.to_i
-
-
-def threeinone(number)
-  
-  if number == 1
-    container << number
-else  
-  container = [number]
-  numbers = number
-  while numbers != 1
-    if numbers % 2 == 0
-      numbers = numbers / 2 
-      container << numbers
- 
-    else 
-      numbers = numbers*3 +1 
-      container << numbers
-    end 
+input = [[1,10],[100,200],[201,210],[900,1000]]
+def cycle_counts(arr)
+  cycles = 0
+  max_cycles = []
+  max = 0
+  (arr[0]..arr[-1]).each do |i|  
+    container = []
+    container << i
+    if i == 1
+      puts "Number is 1"
+    else
+      while(i != 1)
+        if i%2 == 0
+          i = i/2
+        else
+          i = 3*i + 1
+        end
+        container << i
+      end
+    end
+    max_cycles << container.length    
   end
+  max_cycles.each do |i|
+    max = i if i > max
+  end 
+  puts "#{arr[0]} #{arr[-1]} #{max}"
 end
-container
-end 
-
-# 
-
-# puts "#{i} #{j} #{maximum = threeinone(j) > threeinone(i) ?  threeinone(j) : threeinone(i)}"
-# puts "#{i} #{j} #{threeinone(i)+threeinone(j)}"
-puts threeinone(j)
-puts threeinone(i)
-
-
-
-# puts counter
-
-# def cyclecounter(n)
-#   if n != 1
-#     if n%2==0
-#       n = n/2
-#       puts n
-#       cyclecounter(n)
-#     else
-#       n = 3*n+1
-#       puts n
-#       cyclecounter(n)
-#     end
-#   end
-# end
+input.map {|i| cycle_counts(i)}
