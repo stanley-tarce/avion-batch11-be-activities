@@ -6,17 +6,13 @@ def cycle_counts(arr)
   (arr[0]..arr[-1]).each do |i|  
     container = []
     container << i
-    if i == 1
-      puts "Number is 1"
-    else
-      while(i != 1)
-        if i%2 == 0
-          i = i/2
-        else
-          i = 3*i + 1
-        end
-        container << i
+    while(i != 1)
+      if i%2 == 0
+        i = i/2
+      else
+        i = 3*i + 1
       end
+      container << i
     end
     max_cycles << container.length    
   end
