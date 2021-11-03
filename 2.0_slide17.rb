@@ -61,3 +61,24 @@ buyer.buyer_login
 buyer.buy
 
 buyer.change_password = 'new_password'
+
+
+
+class Confection
+  def prepare
+    "Baking at 35 degrees for 25 minutes."
+  end
+end
+
+class Cupcake < Confection
+    def prepare
+    super + " Applying frosting"
+  end
+end
+class BananaCake < Confection
+end
+
+cupcake = Cupcake.new()
+puts cupcake.prepare
+bananacake = BananaCake.new()
+puts bananacake.prepare
