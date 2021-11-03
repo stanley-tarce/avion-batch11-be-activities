@@ -1,0 +1,13 @@
+CREATE TABLE studentss (
+name character varying(50) NOT NULL,
+course character varying(50) not NULL,
+age integer
+);
+
+INSERT INTO studentss (name, course, age) VALUES ('Stanley', 'Biology', 20);
+INSERT INTO studentss (name, course, age) VALUES ('Alexa', 'Physics', 21);
+INSERT INTO studentss (name, course, age) VALUES ('Peter', 'Chemistry', 22);
+INSERT INTO studentss (name, course, age) VALUES ('Sally', 'Mathematics', 23);
+INSERT INTO studentss (name, course, age) VALUES ('John', 'Biology', 24);
+INSERT INTO studentss (name, course, age) VALUES ('Jane', 'Physics', 25);
+INSERT INTO studentss (name, course, age) VALUES ('Mary', 'Chemistry', 26);
