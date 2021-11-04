@@ -1,13 +1,99 @@
-CREATE TABLE studentss (
+CREATE TABLE sql_exercise (
 name character varying(50) NOT NULL,
 course character varying(50) not NULL,
-age integer
+age numeric(3,0) NOT NULL
 );
 
-INSERT INTO studentss (name, course, age) VALUES ('Stanley', 'Biology', 20);
-INSERT INTO studentss (name, course, age) VALUES ('Alexa', 'Physics', 21);
-INSERT INTO studentss (name, course, age) VALUES ('Peter', 'Chemistry', 22);
-INSERT INTO studentss (name, course, age) VALUES ('Sally', 'Mathematics', 23);
-INSERT INTO studentss (name, course, age) VALUES ('John', 'Biology', 24);
-INSERT INTO studentss (name, course, age) VALUES ('Jane', 'Physics', 25);
-INSERT INTO studentss (name, course, age) VALUES ('Mary', 'Chemistry', 26);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Stanley', 'Biology', 20);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Alexa', 'Physics', 21);
+INSERT INTO sql_exercise (name, course, age) VALUES ('John', 'Chemistry', 22);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Edwin', 'Mathematics', 23);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Cheska', 'Biology', 24);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Muns', 'Physics', 25);
+INSERT INTO sql_exercise (name, course, age) VALUES ('Mar', 'Chemistry', 26);
+
+
+  name   |   course    | age 
+---------+-------------+-----
+ Stanley | Biology     |  20
+ Alexa   | Physics     |  21
+ John    | Chemistry   |  22
+ Edwin   | Mathematics |  23
+ Cheska  | Biology     |  24
+ Muns    | Physics     |  25
+ Mar     | Chemistry   |  26
+(7 rows)
+
+
+SELECT * FROM sql_exercise ORDER BY age DESC;
+
+  name   |   course    | age 
+---------+-------------+-----
+ Mar     | Chemistry   |  26
+ Muns    | Physics     |  25
+ Cheska  | Biology     |  24
+ Edwin   | Mathematics |  23
+ John    | Chemistry   |  22
+ Alexa   | Physics     |  21
+ Stanley | Biology     |  20
+(7 rows)
+
+SELECT avg(age) FROM sql_exercise;
+
+=         avg
+---------------------
+ 23.0000000000000000
+(1 row)
+
+SELECT SUM(age) FROM sql_exercise;
+
+ sum 
+-----
+ 161
+(1 row)
+
+
+SELECT * FROM sql_exercise WHERE age >= 25 AND age <= 32;
+
+ name |  course   | age 
+------+-----------+-----
+ Muns | Physics   |  25
+ Mar  | Chemistry |  26
+(2 rows)
+
+UPDATE sql_exercise SET course = 'Millenialogy' WHERE age >= 25 AND age <= 32;
+
+  name   |    course    | age 
+---------+--------------+-----
+ Stanley | Biology      |  20
+ Alexa   | Physics      |  21
+ John    | Chemistry    |  22
+ Edwin   | Mathematics  |  23
+ Cheska  | Biology      |  24
+ Muns    | Millenialogy |  25
+ Mar     | Millenialogy |  26
+(7 rows)
+
+DELETE FROM sql_exercise WHERE age >= 30;
+
+DELETE 0;
+
+SELECT name from sql_exercise;
+
+  name   
+---------
+ Stanley
+ Alexa
+ John
+ Edwin
+ Cheska
+ Muns
+ Mar
+(7 rows)
+
+
+SELECT name, course FROM sql_exercise WHERE age < 20;
+ name | course 
+------+--------
+(0 rows)
+
