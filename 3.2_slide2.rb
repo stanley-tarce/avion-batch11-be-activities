@@ -13,7 +13,7 @@ def unique_in_order(text)
     end
  end  
  end
-  return container
+  return container.join
 end
 
 
